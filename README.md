@@ -1,0 +1,2 @@
+#fcrepo3-ldp
+A JAXRS resource to be bundled into a [fcrepo-3.8.1](https://github.com/fcrepo3/fcrepo/tree/v3.8.1) webapp exposing Fedora 3 objects behind a limited [LDP](https://www.w3.org/TR/ldp/) implementation.

@@ -1,0 +1,13 @@
+target
+build
+stubwrappers
+activemq-data
+derby.log
+.classpath
+.project
+.settings/
+.DS_Store
+*.iml
+*.ipr
+*.iws
+.idea
