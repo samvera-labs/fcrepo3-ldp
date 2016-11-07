@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<foxml:digitalObject VERSION="1.1" PID="demo:5"
+                     xmlns:foxml="info:fedora/fedora-system:def/foxml#"
+                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                     xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/definitions/1/0/foxml1-1.xsd">
+  <foxml:objectProperties>
+    <foxml:property NAME="info:fedora/fedora-system:def/model#state" VALUE="Active"/>
+    <foxml:property NAME="info:fedora/fedora-system:def/model#label" VALUE="Data Object (Coliseum) for Local Simple Image Demo"/>
+    <foxml:property NAME="info:fedora/fedora-system:def/model#ownerId" VALUE="fedoraAdmin"/>
+    <foxml:property NAME="info:fedora/fedora-system:def/model#createdDate" VALUE="2008-07-02T05:09:42.015Z"/>
+    <foxml:property NAME="info:fedora/fedora-system:def/view#lastModifiedDate" VALUE="2016-10-27T22:03:53.661Z"/>
+  </foxml:objectProperties>
+  <foxml:datastream ID="AUDIT" STATE="A" CONTROL_GROUP="X" VERSIONABLE="false">
+    <foxml:datastreamVersion ID="AUDIT.0" LABEL="Audit Trail for this object" CREATED="2008-07-02T05:09:42.015Z" MIMETYPE="text/xml" FORMAT_URI="info:fedora/fedora-system:format/xml.fedora.audit">
+      <foxml:xmlContent>
+        <audit:auditTrail xmlns:audit="info:fedora/fedora-system:def/audit#">
+          <audit:record ID="AUDREC1">
+            <audit:process type="Fedora API-M"/>
+            <audit:action>ingest</audit:action>
+            <audit:componentID></audit:componentID>
+            <audit:responsibility>fedoraAdmin</audit:responsibility>
+            <audit:date>2016-10-27T22:03:53.661Z</audit:date>
+            <audit:justification>Ingested from local file /Users/botimer/fedora/3/client/demo/foxml/local-server-demos/simple-image-demo/obj_demo_5.xml</audit:justification>
+          </audit:record>
+        </audit:auditTrail>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+  </foxml:datastream>
+  <foxml:datastream ID="DC" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+    <foxml:datastreamVersion ID="DC1.0" LABEL="Dublin Core Record for this object" CREATED="2008-07-02T05:09:43.375Z" MIMETYPE="text/xml" FORMAT_URI="http://www.openarchives.org/OAI/2.0/oai_dc/" SIZE="625">
+      <foxml:xmlContent>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Coliseum in Rome</dc:title>
+          <dc:creator>Thornton Staples</dc:creator>
+          <dc:subject>Architecture, Roman</dc:subject>
+          <dc:description>Image of Coliseum in Rome</dc:description>
+          <dc:publisher>University of Virginia Library</dc:publisher>
+          <dc:format>image/jpeg</dc:format>
+          <dc:identifier>demo:5</dc:identifier>
+        </oai_dc:dc>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+  </foxml:datastream>
+  <foxml:datastream ID="RELS-EXT" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+    <foxml:datastreamVersion ID="RELS-EXT1.0" LABEL="RDF Statements about this object" CREATED="2008-07-02T05:09:43.375Z" MIMETYPE="application/rdf+xml" FORMAT_URI="info:fedora/fedora-system:FedoraRELSExt-1.0" SIZE="463">
+      <foxml:xmlContent>
+        <rdf:RDF xmlns:fedora-model="info:fedora/fedora-system:def/model#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+          <rdf:Description rdf:about="info:fedora/demo:5">
+            <fedora-model:hasModel rdf:resource="info:fedora/demo:UVA_STD_IMAGE_1"></fedora-model:hasModel>
+            <prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="it">Immagine del Colosseo a Roma</prefLabel>
+          </rdf:Description>
+        </rdf:RDF>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+  </foxml:datastream>
+  <foxml:datastream ID="THUMBRES_IMG" STATE="A" CONTROL_GROUP="E" VERSIONABLE="true">
+    <foxml:datastreamVersion ID="THUMBRES_IMG1.0" LABEL="Thorny&apos;s Coliseum thumbnail jpg image" CREATED="2008-07-02T05:09:43.375Z" MIMETYPE="image/jpeg">
+      <foxml:contentLocation TYPE="URL" REF="http://local.fedora.server/fedora-demo/simple-image-demo/coliseum-thumb.jpg"/>
+    </foxml:datastreamVersion>
+  </foxml:datastream>
+  <foxml:datastream ID="MEDRES_IMG" STATE="A" CONTROL_GROUP="E" VERSIONABLE="true">
+    <foxml:datastreamVersion ID="MEDRES_IMG1.0" LABEL="Thorny&apos;s Coliseum medium jpg image" CREATED="2008-07-02T05:09:43.375Z" MIMETYPE="image/jpeg">
+      <foxml:contentLocation TYPE="URL" REF="http://local.fedora.server/fedora-demo/simple-image-demo/coliseum-medium.jpg"/>
+    </foxml:datastreamVersion>
+  </foxml:datastream>
+  <foxml:datastream ID="HIGHRES_IMG" STATE="A" CONTROL_GROUP="E" VERSIONABLE="true">
+    <foxml:datastreamVersion ID="HIGHRES_IMG1.0" LABEL="Thorny&apos;s Coliseum high jpg image" CREATED="2008-07-02T05:09:43.375Z" MIMETYPE="image/jpeg">
+      <foxml:contentLocation TYPE="URL" REF="http://local.fedora.server/fedora-demo/simple-image-demo/coliseum-high.jpg"/>
+    </foxml:datastreamVersion>
+  </foxml:datastream>
+  <foxml:datastream ID="VERYHIGHRES_IMG" STATE="A" CONTROL_GROUP="E" VERSIONABLE="true">
+    <foxml:datastreamVersion ID="VERYHIGHRES_IMG1.0" LABEL="Thorny&apos;s Coliseum veryhigh jpg image" CREATED="2008-07-02T05:09:43.375Z" MIMETYPE="image/jpeg">
+      <foxml:contentLocation TYPE="URL" REF="http://local.fedora.server/fedora-demo/simple-image-demo/coliseum-veryhigh.jpg"/>
+    </foxml:datastreamVersion>
+  </foxml:datastream>
+</foxml:digitalObject>
