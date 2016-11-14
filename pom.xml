@@ -5,150 +5,29 @@
   <version>0.0.1-SNAPSHOT</version>
 
   <artifactId>fcrepo3-ldp</artifactId>
-  <packaging>war</packaging>
-  <name>Fedora 3.8.1 Webapp with LDP</name>
+  <packaging>pom</packaging>
+  <name>Fedora 3.8.1 webapp with LDP (aggregator)</name>
 
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-war-plugin</artifactId>
-        <configuration>
-          <warName>ldp</warName>
-        </configuration>
-      </plugin>
-    </plugins>
-    <resources>
-      <resource>
-        <directory>src/main/resources</directory>
-      </resource>
-    </resources>
-  </build>
+  <modules>
+    <module>fcrepo-jaxrs-ldp</module>
+    <module>fcrepo-webapp-fedora</module>
+  </modules>
 
   <properties>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-  	<fcrepo.version>3.8.1</fcrepo.version>
-    <spring.version>3.0.7.RELEASE</spring.version>
-    <cxf.version>2.7.7</cxf.version>
+    <fcrepo.version>3.8.1</fcrepo.version>
     <rdf4j.version>2.1.1</rdf4j.version>
-    <servlet.version>2.4</servlet.version>
-    <slf4j.version>1.7.2</slf4j.version>
-    <logback.version>1.0.9</logback.version>
   </properties>
 
-  <dependencies>
-    <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>servlet-api</artifactId>
-      <version>${servlet.version}</version>
-    </dependency>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.fcrepo</groupId>
+        <artifactId>fcrepo-server</artifactId>
+        <version>${fcrepo.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
-    <dependency>
-      <groupId>org.fcrepo</groupId>
-      <artifactId>fcrepo-server</artifactId>
-      <version>${fcrepo.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.springframework.security</groupId>
-      <artifactId>spring-security-web</artifactId>
-      <version>${spring.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-context</artifactId>
-      <version>${spring.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-web</artifactId>
-      <version>${spring.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.springframework.security</groupId>
-      <artifactId>spring-security-config</artifactId>
-      <version>${spring.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.fcrepo</groupId>
-      <artifactId>fcrepo-security-jaas</artifactId>
-      <version>${fcrepo.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.fcrepo</groupId>
-      <artifactId>fcrepo-security-pdp</artifactId>
-      <version>${fcrepo.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.fcrepo</groupId>
-      <artifactId>fcrepo-security-pep</artifactId>
-      <version>${fcrepo.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.fcrepo</groupId>
-      <artifactId>fcrepo-security-http</artifactId>
-      <version>${fcrepo.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.apache.cxf</groupId>
-      <artifactId>cxf-rt-frontend-jaxrs</artifactId>
-      <version>${cxf.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.eclipse.rdf4j</groupId>
-      <artifactId>rdf4j-runtime</artifactId>
-      <version>${rdf4j.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>mysql</groupId>
-      <artifactId>mysql-connector-java</artifactId>
-      <version>5.1.20</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.postgresql</groupId>
-      <artifactId>postgresql</artifactId>
-      <version>9.3-1102-jdbc41</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>jcl-over-slf4j</artifactId>
-      <version>${slf4j.version}</version>
-      <scope>compile</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>ch.qos.logback</groupId>
-      <artifactId>logback-classic</artifactId>
-      <version>${logback.version}</version>
-      <scope>compile</scope>
-    </dependency>
-
-    <!-- testing dependencies -->
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.10</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.mockito</groupId>
-      <artifactId>mockito-core</artifactId>
-      <version>1.9.5</version>
-      <scope>test</scope>
-    </dependency>
-
-  </dependencies>
 </project>

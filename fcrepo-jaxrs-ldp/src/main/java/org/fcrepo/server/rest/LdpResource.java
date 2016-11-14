@@ -1,4 +1,4 @@
-package org.fcrepo.localservices.ldp;
+package org.fcrepo.server.rest;
 
 import org.eclipse.rdf4j.model.*;
 import org.eclipse.rdf4j.model.impl.LinkedHashModel;
@@ -9,8 +9,10 @@ import org.eclipse.rdf4j.rio.RDFFormat;
 import org.eclipse.rdf4j.rio.RDFWriter;
 import org.eclipse.rdf4j.rio.Rio;
 import org.eclipse.rdf4j.rio.helpers.BasicWriterSettings;
+import org.fcrepo.server.Server;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 import org.w3c.dom.*;
 
 import javax.ws.rs.*;
@@ -26,11 +28,17 @@ import java.io.*;
 /**
  * Created by botimer on 10/28/16.
  */
-public class LdpResource {
+@Path("/")
+@Component
+public class LdpResource extends BaseRestResource {
     protected final Logger logger = LoggerFactory.getLogger(LdpResource.class);
 
     public static final String MIME_TURTLE = "text/turtle";
     public static final String MIME_JSONLD = "application/ld+json";
+
+    public LdpResource(Server server) {
+        super(server);
+    }
 
     @GET
     @Path("/info")
@@ -73,7 +81,9 @@ public class LdpResource {
         for (Namespace namespace : model.getNamespaces()) {
             writer.handleNamespace(namespace.getPrefix(), namespace.getName());
         }
-        model.forEach(writer::handleStatement);
+        for (Statement s : model) {
+            writer.handleStatement(s);
+        }
 
         writer.endRDF();
         return Response.ok(out.toString()).type(MIME_TURTLE).build();
@@ -89,7 +99,9 @@ public class LdpResource {
         for (Namespace namespace : model.getNamespaces()) {
             writer.handleNamespace(namespace.getPrefix(), namespace.getName());
         }
-        model.forEach(writer::handleStatement);
+        for (Statement s : model) {
+            writer.handleStatement(s);
+        }
 
         writer.endRDF();
         return Response.ok(out.toString()).type(MIME_JSONLD).build();
@@ -105,7 +117,9 @@ public class LdpResource {
         for (Namespace namespace : model.getNamespaces()) {
             writer.handleNamespace(namespace.getPrefix(), namespace.getName());
         }
-        model.forEach(writer::handleStatement);
+        for (Statement s : model) {
+            writer.handleStatement(s);
+        }
         writer.endRDF();
         return Response.ok(out.toString()).type(MIME_TURTLE).build();
     }
@@ -173,7 +187,9 @@ public class LdpResource {
             if ("RELS-EXT".equals(el.getAttribute("ID"))) {
                 Element relsRoot = (Element) el.getElementsByTagName("rdf:RDF").item(0);
                 Model rels = parseRELS(relsRoot);
-                rels.getNamespaces().forEach(model::setNamespace);
+                for (Namespace ns : rels.getNamespaces()) {
+                    model.setNamespace(ns);
+                }
                 model.addAll(rels);
             }
         }

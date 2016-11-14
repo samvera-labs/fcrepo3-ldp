@@ -1,33 +1,47 @@
-package org.fcrepo.localservices.ldp;
+package org.fcrepo.server.rest;
 
 import org.eclipse.rdf4j.model.IRI;
 import org.eclipse.rdf4j.model.Model;
 import org.eclipse.rdf4j.model.impl.LinkedHashModel;
 import org.eclipse.rdf4j.model.util.Models;
 import org.eclipse.rdf4j.model.vocabulary.DC;
-import org.eclipse.rdf4j.model.vocabulary.RDF;
 import org.eclipse.rdf4j.rio.RDFFormat;
 import org.eclipse.rdf4j.rio.RDFParser;
 import org.eclipse.rdf4j.rio.Rio;
 import org.eclipse.rdf4j.rio.helpers.StatementCollector;
+import org.fcrepo.server.Server;
+import org.fcrepo.server.storage.DOManager;
+import org.fcrepo.server.storage.DefaultDOManager;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
 
 import java.io.StringReader;
 import java.io.StringWriter;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.when;
 
 /**
  * Created by botimer on 11/2/16.
  */
+@RunWith(MockitoJUnitRunner.class)
 public class LdpResourceTest {
 
     LdpResource resource;
 
+    @Mock
+    private Server server;
+
+    @Mock
+    private DefaultDOManager manager;
+
     @Before
     public void setUp() throws Exception {
-        resource = new LdpResource();
+        when(server.getModule(DOManager.class.getName())).thenReturn(manager);
+        resource = new LdpResource(server);
     }
 
     @Test
